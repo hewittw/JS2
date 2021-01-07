@@ -13,8 +13,10 @@ function myClick () {
   console.log(fname, lname, favColor);
 
   // Get the value of the radio boxes.
-  var gender = document.getElementById('gender').value;
-  console.log(gender);
+  var gender1 = document.getElementById('male').value;
+  var gender2 = document.getElementById('female').value;
+  var gender3 = document.getElementById('other').value;
+  console.log(gender1, gender2, gender3);
 
   // Get the value of the check boxes.
   var vehicle1 = document.getElementById('vehicle1').value;
@@ -24,10 +26,11 @@ function myClick () {
 
   // Do something with our input / information from the user.
   myDiv.innerHTML = "\n" + "Your Name is " + fname + " " + lname;
-  myDiv.innerHTML += "\n" + "Your favorite color is " + favColor; // WHY ISN'T THE NEW LINE WORKING HERE!!!!!!!!!!!???????
-  myDiv.innerHTML += "\n" + "You identify as " + gender; //WHY DOES THIS ALWAYS PUT THE GENDER AS MALE!!!!!!
-  //myDiv.innerHTML += "\n" + "Your vehicles include: " + vehicle1 + ", " + vehicle2 + ", " vehicle3;
-  // why does this cause an error????
+  myDiv.innerHTML += ". " + "Your favorite color is " + favColor; // WHY ISN'T THE NEW LINE WORKING HERE!!!!!!!!!!!???????
+  myDiv.innerHTML += ". " + "You identify as " + gender1 + ", " + gender2 + ", " + gender3; //WHY DOES THIS ALWAYS PUT THE GENDER AS MALE!!!!!!
+
+  myDiv.innerHTML += ". " + "Your vehicles include: " + vehicle1 + ", " + vehicle2 + ", " + vehicle3;
+
   // how get value saying if these have been pressed or not????
 
   /* Example code that is helpful for reference from Dr. J
