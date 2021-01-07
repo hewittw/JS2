@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Practice</title>
+    <meta charset="utf-8"></meta>
+    <script defer src="inputBoxesTest.js"></script>
+    <style>
+    #myDiv, button {
+      font-size: 150%;
+    }
+    input {
+      font-size: 125%;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Hewitt testing new JS</h1>
+    <h2>Have fun</h2>
+    <br></br>
+
+    <div id="myDiv">
+      <!-- text boxes -->
+      <label>
+        Type your first name, last name, and favorite color in that order in the 3 boxes below.
+      </label>
+      <input id='fname' name='fname' type="text">
+      <input id='lname' name='lname' type="text">
+      <input id='favColor' name='favColor' type="text">
+
+      <!-- radio -->
+      <h2>Radio Buttons</h2>
+
+      <input type="radio" id="gender" name="gender" value="male">
+      <label for="male">Male</label><br>
+      <input type="radio" id="gender" name="gender" value="female">
+      <label for="female">Female</label><br>
+      <input type="radio" id="gender" name="gender" value="other">
+      <label for="other">Other</label>
+      <br></br>
+
+      <!-- check boxes -->
+      <h2>Check Boxes</h2>
+
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+      <label for="vehicle1"> I have a bike</label><br>
+      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+      <label for="vehicle2"> I have a car</label><br>
+      <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+      <label for="vehicle3"> I have a boat</label>
+      <br></br>
+
+      <!-- button -->
+      <button onclick='myClick()'>I'm a button, click me!</button>
+
+
+    </div>
+
+  </body>
+</html>
