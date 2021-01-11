@@ -1,9 +1,10 @@
 // Click event to attach to button
 function myClick () {
   /*
-  Purpose:
-  Parameters:
-  Returns:
+  Purpose: Listen for a button press in order to change content on the page
+           and display what the user inputted
+  Parameters: None
+  Returns: None
   */
   // Quick check to verify that the function executes.
   console.log("test function");
@@ -37,7 +38,7 @@ function myClick () {
   if (favColor != "") {
     myDiv.innerHTML += "<br>Your favorite color is " + favColor + ". ";
   } else {
-    myDiv.innerHTML += "Please enter your favorite color.";
+    myDiv.innerHTML += "<br>Please enter your favorite color.";
   }
 
   // Display check boxes values
@@ -49,12 +50,12 @@ function myClick () {
   }
 
   // Display Radio box values
-  genderUnknown = true;
+  knowGender = fale;
   i = 0;
-  while (genderUnknown){
+  while (knowGender == false & i < 3){
     if (genders[i].checked) {
      myDiv.innerHTML += "<br>You identify as " + genders[i].value + ". ";
-     genderUnknown = false;
+     knowGender = true;
      i++;
    }
   }
