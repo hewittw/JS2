@@ -1,51 +1,67 @@
-// Just check to see that we found the div element we are looking for
-myDiv = document.getElementById("myDiv");
-console.log(myDiv);
-
 // Click event to attach to button
 function myClick () {
+  /*
+  Purpose:
+  Parameters:
+  Returns:
+  */
   // Quick check to verify that the function executes.
   console.log("test function");
   // Get the values that were input into the two text boxes.
   var fname = document.getElementById('fname').value;
   var lname = document.getElementById('lname').value;
   var favColor = document.getElementById('favColor').value;
-  console.log(fname, lname, favColor);
 
   // Get the value of the radio boxes.
-  var gender1 = document.getElementById('male').value;
-  var gender2 = document.getElementById('female').value;
-  var gender3 = document.getElementById('other').value;
-  console.log(gender1, gender2, gender3);
+  var male = document.getElementById('male');
+  var female = document.getElementById('female');
+  var other = document.getElementById('other');
+  var genders = [male, female, other];
 
-  // Get the value of the check boxes.
-  var vehicle1 = document.getElementById('vehicle1').value;
-  var vehicle2 = document.getElementById('vehicle2').value;
-  var vehicle3 = document.getElementById('vehicle3').value;
-  console.log(vehicle1, vehicle2, vehicle3);
+  // // Get the value of the check boxes.
+  // Note: don't use but getting them just in case I want do something with them later after we learn more code
+  var bike = document.getElementById('Bike');
+  var car = document.getElementById('Car');
+  var boat = document.getElementById('Boat');
+  var vehicles = [bike, car, boat];
 
-  // Do something with our input / information from the user.
-  myDiv.innerHTML = "\n" + "Your Name is " + fname + " " + lname;
-  myDiv.innerHTML += ". " + "Your favorite color is " + favColor; // WHY ISN'T THE NEW LINE WORKING HERE!!!!!!!!!!!???????
-  myDiv.innerHTML += ". " + "You identify as " + gender1 + ", " + gender2 + ", " + gender3; //WHY DOES THIS ALWAYS PUT THE GENDER AS MALE!!!!!!
+  // Display values
 
-  myDiv.innerHTML += ". " + "Your vehicles include: " + vehicle1 + ", " + vehicle2 + ", " + vehicle3;
+  // Display text box values
+  if (fname != "" & lname != "") {
+    myDiv.innerHTML = "Your name is " + fname + " " + lname + ". ";
+  } else {
+    myDiv.innerHTML = "Please enter your names again. We did not get all the data we needed.";
+  }
 
-  // how get value saying if these have been pressed or not????
+  if (favColor != "") {
+    myDiv.innerHTML += "<br>Your favorite color is " + favColor + ". ";
+  } else {
+    myDiv.innerHTML += "Please enter your favorite color.";
+  }
 
-  /* Example code that is helpful for reference from Dr. J
+  // Display check boxes values
+  var vehicles = [bike, car, boat];
+  for (i = 0; i < 3; i++) {
+    if (vehicles[i].checked) {
+      myDiv.innerHTML += "<br>You have a " + vehicles[i].value + ". ";
+    }
+  }
 
-  // By using = we *replace* the entire contents of the div tag.
-  myDiv.innerHTML = "\n";
+  // Display Radio box values
+  genderUnknown = true;
+  i = 0;
+  while (genderUnknown){
+    if (genders[i].checked) {
+     myDiv.innerHTML += "<br>You identify as " + genders[i].value + ". ";
+     genderUnknown = false;
+     i++;
+   }
+  }
 
-  // Now, using += we are *appending* to the new contents of the div tag.
-  myDiv.innerHTML += "\t\t<h1>Whoa.</h1>\n"
-
-  // Notice mixing of quotation marks, just like in Python.
-  myDiv.innerHTML += "\t\t<img src='default.png' />\n";
-
-  // Notice here that we are appending the values of the variables.
-  myDiv.innerHTML += "\t\t<p>" + fname + " " + lname + "</p>\n";
-
-  */
 }
+
+// Main Section
+// Just check to see that we found the div element we are looking for
+myDiv = document.getElementById("myDiv");
+console.log(myDiv);
