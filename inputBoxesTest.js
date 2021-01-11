@@ -1,3 +1,16 @@
+function findRadioBox (genders) {
+  /*
+  Purpose: Find the radio box selected
+  Parameters: list of the radio box element id info stored in a variable
+  Returns: the value of the clicked radio box element
+  */
+  for (i = 0; i < 3; i++) {
+    if (genders[i].checked) {
+      return genders[i].value;
+    }
+  }
+}
+
 // Click event to attach to button
 function myClick () {
   /*
@@ -50,15 +63,23 @@ function myClick () {
   }
 
   // Display Radio box values
-  knowGender = fale;
-  i = 0;
-  while (knowGender == false & i < 3){
-    if (genders[i].checked) {
-     myDiv.innerHTML += "<br>You identify as " + genders[i].value + ". ";
-     knowGender = true;
-     i++;
-   }
-  }
+  userGender = findRadioBox(genders);
+  myDiv.innerHTML += "<br>You identify as " + userGender + ". ";
+
+
+
+  // knowGender = false;
+  // var i = 0;
+  // while (knowGender == false && i < 3){
+  //   if (genders[i].checked) {
+  //    myDiv.innerHTML += "<br>You identify as " + genders[i].value + ". ";
+  //    knowGender = true;
+  //    i++;
+  //    console.log(i);
+  //    console.log(knowGender);
+  //    console.log(here);
+  //  }
+  // }
 
 }
 
