@@ -39,7 +39,9 @@ function myClick () {
   var boat = document.getElementById('Boat');
   var vehicles = [bike, car, boat];
 
-  // Other inputs
+  // Other inputs test JS
+  var myURL = document.getElementById("myURL") // ask dr. J why this isn't working!!!!!!!!!
+  window.open(myURL);
 
   // Display values
 
