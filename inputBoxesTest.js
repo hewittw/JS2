@@ -39,6 +39,8 @@ function myClick () {
   var boat = document.getElementById('Boat');
   var vehicles = [bike, car, boat];
 
+  // Other inputs
+
   // Display values
 
   // Display text box values
@@ -65,6 +67,19 @@ function myClick () {
   // Display Radio box values
   userGender = findRadioBox(genders);
   myDiv.innerHTML += "<br>You identify as " + userGender + ". ";
+
+
+  // Check local storage and display data
+  var oldLastName = localStorage.getItem("lastName");
+  console.log(oldLastName);
+  if (oldLastName != null ) {
+    myDiv.innerHTML += "<br>Last time you answered your last name was " + oldLastName + ". ";
+  }
+
+  // Add last name to local storage
+  if (lname != "") {
+    localStorage.setItem("lastName", lname);
+  }
 
 
 
