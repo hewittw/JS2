@@ -41,28 +41,52 @@ function myClick () {
 
   // Other inputs test JS
   var myURL = document.getElementById("myURL") // ask dr. J why this isn't working!!!!!!!!!
-  window.open(myURL);
+  //window.open(myURL);  // get this working later with an iframe - couldn't get to work right now
+
+  // JSON test code - not fully integrated yet, just trying it out
+  myJSON = {
+    "fname": fname,
+    "lname": lname,
+    "favColor": favColor,
+    "male": male,
+    "female": female,
+    "other": other,
+    "genders": genders,
+    "bike": bike,
+    "car": car,
+    "boat": boat,
+    "vehicles": vehicles,
+    "myURL": myURL,
+  }
+  console.log(myJSON);
+
+  console.log(JSON.stringify(myJSON));
+  console.log(JSON.parse(JSON.stringify(myJSON)));
+
 
   // Display values
 
   // Display text box values
-  if (fname != "" & lname != "") {
-    myDiv.innerHTML = "Your name is " + fname + " " + lname + ". ";
+  if (myJSON['fname'] != "" & myJSON['lname'] != "") {
+    myDiv.innerHTML = "Your name is " + myJSON['fname'] + " " + myJSON['lname'] + ". ";
   } else {
     myDiv.innerHTML = "Please enter your names again. We did not get all the data we needed.";
   }
 
-  if (favColor != "") {
-    myDiv.innerHTML += "<br>Your favorite color is " + favColor + ". ";
+  if (myJSON['favColor'] != "") {
+    myDiv.innerHTML += "<br>Your favorite color is " + myJSON['favColor'] + ". ";
   } else {
     myDiv.innerHTML += "<br>Please enter your favorite color.";
   }
 
+
+  // HERE AND BELOW NEED TO ADD THE JSON STUFF - JUST WANT TO TRY IT OUT ABOVE MORE
+
+
   // Display check boxes values
-  var vehicles = [bike, car, boat];
   for (i = 0; i < 3; i++) {
-    if (vehicles[i].checked) {
-      myDiv.innerHTML += "<br>You have a " + vehicles[i].value + ". ";
+    if (myJSON['vehicles'][i].checked) {
+      myDiv.innerHTML += "<br>You have a " + myJSON['vehicles'][i].checked + ". ";
     }
   }
 
@@ -78,12 +102,22 @@ function myClick () {
     myDiv.innerHTML += "<br>Last time you answered your last name was " + oldLastName + ". ";
   }
 
+  var oldJSON = localStorage.getItem(oldLastName);
+  oldJSON.parse();
+  if (oldJSON['vehicles'][i].checked) {
+    myDiv.innerHTML += "<br>Last time you answered you said you had a bike.";
+  } else {
+    myDiv.innerHTML += "<br>Last time you answered you said you did not have a bike."
+  }
+
+
+
   // Add last name to local storage
   if (lname != "") {
     localStorage.setItem("lastName", lname);
   }
 
-
+  localStorage.setItem(myJSON['lname'], myJSON.stringify());
 
   // knowGender = false;
   // var i = 0;
