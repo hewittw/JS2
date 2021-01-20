@@ -1,3 +1,7 @@
+// to do's
+// fix the vehicles one with the json
+// fix the adding json's to a list of json's for storage
+
 function findRadioBox (genders) {
   /*
   Purpose: Find the radio box selected
@@ -86,7 +90,7 @@ function myClick () {
   // Display check boxes values
   for (i = 0; i < 3; i++) {
     if (myJSON['vehicles'][i].checked) {
-      myDiv.innerHTML += "<br>You have a " + myJSON['vehicles'][i].checked + ". ";
+      myDiv.innerHTML += "<br>You have a " + myJSON['vehicles'][i].checked + ". "; // is there anyway to acess the key based on the value???? ask dr. J
     }
   }
 
@@ -102,6 +106,15 @@ function myClick () {
     myDiv.innerHTML += "<br>Last time you answered your last name was " + oldLastName + ". ";
   }
 
+  // Add last name to local storage
+  if (lname != "") {
+    localStorage.setItem("lastName", lname);
+  }
+  //***************************************************************************//
+  //***************************************************************************//
+  //***************************************************************************//
+  // fixing code from here down - Ask dr. j how I don't get it to reset every time
+
   var oldJSON = localStorage.getItem(oldLastName);
   oldJSON.parse();
   if (oldJSON['vehicles'][i].checked) {
@@ -110,27 +123,9 @@ function myClick () {
     myDiv.innerHTML += "<br>Last time you answered you said you did not have a bike."
   }
 
-
-
-  // Add last name to local storage
-  if (lname != "") {
-    localStorage.setItem("lastName", lname);
-  }
-
-  localStorage.setItem(myJSON['lname'], myJSON.stringify());
-
-  // knowGender = false;
-  // var i = 0;
-  // while (knowGender == false && i < 3){
-  //   if (genders[i].checked) {
-  //    myDiv.innerHTML += "<br>You identify as " + genders[i].value + ". ";
-  //    knowGender = true;
-  //    i++;
-  //    console.log(i);
-  //    console.log(knowGender);
-  //    console.log(here);
-  //  }
-  // }
+  dataJSON
+  // Add JSON to JSON of JSONs to local storage
+  localStorage.setItem(myJSON['data'], dataJSON ; // how make it so that the thing doesn't get reset at the start of every program??????????
 
 }
 
@@ -138,3 +133,7 @@ function myClick () {
 // Just check to see that we found the div element we are looking for
 myDiv = document.getElementById("myDiv");
 console.log(myDiv);
+
+// global variable that is a JSON of JSONs - do i define it here or where do I define it?????????
+dataJSON = {
+}
