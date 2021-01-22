@@ -88,11 +88,13 @@ function myClick () {
 
 
   // Display check boxes values
+  var numVehicles = 0;
   for (i = 0; i < 3; i++) {
     if (myJSON['vehicles'][i].checked) {
-      myDiv.innerHTML += "<br>You have a " + myJSON['vehicles'][i].checked + ". "; // is there anyway to acess the key based on the value???? ask dr. J
+      numVehicles++;
     }
   }
+  myDiv.innerHTML += "<br>You had " + numVehicles + " out of 3 vehicles.";
 
   // Display Radio box values
   userGender = findRadioBox(genders);
@@ -113,27 +115,21 @@ function myClick () {
   //***************************************************************************//
   //***************************************************************************//
   //***************************************************************************//
-  // fixing code from here down - Ask dr. j how I don't get it to reset every time
-
-  var oldJSON = localStorage.getItem(oldLastName);
-  oldJSON.parse();
-  if (oldJSON['vehicles'][i].checked) {
-    myDiv.innerHTML += "<br>Last time you answered you said you had a bike.";
-  } else {
-    myDiv.innerHTML += "<br>Last time you answered you said you did not have a bike."
+  oldJSON = localStorage.getItem("oldJSON");
+  if (oldJSON != null ) {
+    oldData = JSON.parse(oldJSON);
+    if (oldData['fname'] != ""){
+      myDiv.innerHTML += "<br>Last time you answered your first name was " + oldData['fname'];
+    }
   }
 
-  dataJSON
-  // Add JSON to JSON of JSONs to local storage
-  localStorage.setItem(myJSON['data'], dataJSON ; // how make it so that the thing doesn't get reset at the start of every program??????????
 
+  // Add this JSON to local storage
+  stringJSON = JSON.stringify(myJSON)
+  localStorage.setItem("oldJSON", stringJSON);
 }
 
 // Main Section
 // Just check to see that we found the div element we are looking for
 myDiv = document.getElementById("myDiv");
 console.log(myDiv);
-
-// global variable that is a JSON of JSONs - do i define it here or where do I define it?????????
-dataJSON = {
-}
