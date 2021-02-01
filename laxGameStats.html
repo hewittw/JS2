@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Javascript Practice</title>
+    <title>Lax Game Stats</title>
     <meta charset="utf-8"></meta>
-    <script defer src="inputBoxesTest.js"></script>
+    <script defer src="laxGameStats.js"></script>
     <style>
     #myDiv, button {
       font-size: 150%;
@@ -14,7 +14,7 @@
     </style>
   </head>
   <body>
-    <h1>Lacrosse Game Stat - Remember Your Game</h1>
+    <h1>Lacrosse Game Stats - Remember Your Game</h1>
     <h2>Please enter your stats below</h2>
 
     <div id="myDiv">
@@ -51,7 +51,9 @@
       <label for="bigPlay3"> Around the World</label>
       <br></br> <!-- DO I NEED THE CLOSED BR TAG HERE. ASK DR. J IN CLASS!!!!!!!!!!! -->
 
+      <h2>Other Info</h2>
 
+      <!-- this will be important to get the extra credit needed --- think about these-->
       <!-- othe inputs being tried out -->
       <label for="vehicle3"> Enter your email</label><br>
       <input type="email" id="myEmail" name="email" autocomplete="on" ><br> <!-- why do the email id and name need to be like this for the autocomplete to work???? -->
@@ -61,9 +63,10 @@
       <label for="vehicle3"> Enter a URL in its entirety</label><br>
       <input type="url" id="myURL" name="URL"><br>
       <!-- try using this one ????? -->
-      <input type="date">
+      <label for="gameDate"> Enter a URL in its entirety</label><br>
+      <input type="date" id="gameDate" name="gameDate"><br>
       <!-- button -->
-      <button onclick='myClick()'>Click to sumbit your Stats!</button>
+      <br><button onclick='myClick()'>Click to sumbit your Stats!</button>
 
 
     </div>
