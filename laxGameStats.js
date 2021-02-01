@@ -1,7 +1,9 @@
 // to do's
 // fix the vehicles one with the json
 // fix the adding json's to a list of json's for storage
-
+// get dr. j to look at html code
+// ask if you have to do the api - might be too hard
+// how use a good password thing
 function findRadioBox (genders) {
   /*
   Purpose: Find the radio box selected
