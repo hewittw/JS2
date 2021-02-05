@@ -14,10 +14,10 @@
     </style>
   </head>
   <body>
-    <h1>Lacrosse Game Stats - Remember Your Game</h1>
-    <h2>Please enter your stats below</h2>
 
     <div id="myDiv">
+      <h1>Lacrosse Game Stats - Remember Your Game</h1>
+      <h2>Please enter your stats below</h2>
       <!-- text boxes -->
       <h2>Name, number, and # of G's</h2>
       <label>Enter your first name</label><br>
@@ -51,23 +51,25 @@
       <label for="bigPlay3"> Around the World</label>
       <br></br> <!-- DO I NEED THE CLOSED BR TAG HERE. ASK DR. J IN CLASS!!!!!!!!!!! -->
 
-      <h2>Other Info</h2>
-
-      <!-- this will be important to get the extra credit needed --- think about these-->
-      <!-- othe inputs being tried out -->
-      <label for="vehicle3"> Enter your email</label><br>
-      <input type="email" id="myEmail" name="email" autocomplete="on" ><br> <!-- why do the email id and name need to be like this for the autocomplete to work???? -->
-      <label for="vehicle3"> Give me a password</label><br>
-      <input type="password" id="myPassword" name="password" autocomplete="on"><br>  <!-- what is a good naming convention for the id and name so that it is not reptitive and is helpful -->
-      <!-- why isn't the password auto complete working - nothing to auto put in ????? -->
-      <label for="vehicle3"> Enter a URL in its entirety</label><br>
-      <input type="url" id="myURL" name="URL"><br>
-      <!-- try using this one ????? -->
-      <label for="gameDate"> Enter a URL in its entirety</label><br>
+      <h2>Logistics</h2>
+      <label for="gameDate">Enter the Game's Date</label><br>
       <input type="date" id="gameDate" name="gameDate"><br>
+
       <!-- button -->
       <br><button onclick='myClick()'>Click to sumbit your Stats!</button>
 
+
+    </div>
+
+    <div id="infoDiv">
+      <br><h1>Game Stats Search Console<h1>
+      <h2>The Numbers Don't Lie<h2>
+      <label>Enter your number to see your stats. Type 'all' to see everyones stats</label><br>
+      <input id='playerSearchNum' name='playerSearchNum' type='text' onmouseover='myMouseOver()' onmouseout='myMouseOut()'><br>
+      <button onclick='findStats()'>Search</button>
+    </div>
+
+    <div id="resultsDiv" style="font-size: 155%">
 
     </div>
 
