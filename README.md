@@ -2,4 +2,4 @@
 
 This program is designed to be a database that you can input game stats and then search for your game stats based on your number. The areas I tried to exceed / go above in this project were in coding practices, independence and intellectual curiosity, and ambition. I spent a lot of time organzing my code into a python like setup that has logical and effecient progression. I included lots of comments and I think they make my pogram easy to understand. I also worked on indepednence and intellectual curiiosity by making the data in local storage central to my program. I wanted to not just use the storing of JSONs as a party trick at the end of my program, but I wanted my program to revolve around it. I think I achieved that. I created an effective way for the user to search through all information stored in the JSON and then get that data displayed. I also aim to do well in the ambition category because I previously had never made a database with JSONs before. Now my whole program is not only dependent on them, but it is only interesting because of JSONs.
 
-Final commit code: 
+Final commit code: 3790345bf576b205bd813d91392e32cc17c3650c
