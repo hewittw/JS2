@@ -4,10 +4,13 @@
 function displayStats(searchResults){
   /*
   Purpose: Display the game stats the user wants to find (will also clear the old results)
-  Parameters: list of JSONs that relate to the user's searh
+  Parameters: list or array of JSONs that relate to the user's searh
   Returns: None
   */
+  // helpful test code
   console.log("in display stats")
+
+  // begin showing data
   resultsDiv.innerHTML = "<br><h3>Search Results</h3>";
   for (i = 0; i < searchResults.length; i++){
 
@@ -32,8 +35,9 @@ function displayStats(searchResults){
       resultsDiv.innerHTML +="Position: midfield - ";
     } else if (searchResults[i]['attack']) {
       resultsDiv.innerHTML +="Position: attack - ";
+    } else {
+      resultsDiv.innerHTML +="Position: NA - ";
     }
-
 
     // Display big plays (checkboxes)
 
@@ -46,7 +50,7 @@ function displayStats(searchResults){
     resultsDiv.innerHTML +="Num big Plays: " + numBigPlays + " - ";
 
     // Display Game date
-    if (searchResults[i]['gameDate'] != null){
+    if (searchResults[i]['gameDate'] != null && searchResults[i]['gameData'] != ""){
       resultsDiv.innerHTML +="Date of Game: " + searchResults[i]['gameDate'];
     } else {
       resultsDiv.innerHTML +="Date of Game: NA";
@@ -57,28 +61,30 @@ function displayStats(searchResults){
 
 function findStats(){
   /*
-  Purpose: Use the player's inputted search information to find the stats they are looking for
+  Purpose: Use the player's inputted search information to find the stats they are looking for - called
+           when the search button is clicked.
   Parameters: None
-  Returns: None - instead calls and passes info to the display stats function
+  Returns: None - instead calls and passes info to the displayStats function
   */
   var playerSearchNum = document.getElementById('playerSearchNum').value;
-  if (games == null || games == ""){
-  } else if (playerSearchNum.toLowerCase() == "all"){
-    searchResults = games;
-    displayStats(searchResults);
-  } else if (playerSearchNum != ""){
-    var searchResults = [];
-    for (i = 0; i < games.length; i++){
-      console.log(games[i]['playerNum']);
-      if (games[i]['playerNum'] == playerSearchNum){
-        console.log("shld be plyer num below");
+  if (games != null && games != ""){
+    if (playerSearchNum.toLowerCase() == "all"){
+      searchResults = games;
+      displayStats(searchResults);
+    } else if (playerSearchNum != ""){
+      var searchResults = [];
+      for (i = 0; i < games.length; i++){
         console.log(games[i]['playerNum']);
-        searchResults.push(games[i]);
+        if (games[i]['playerNum'] == playerSearchNum){
+          console.log("shld be plyer num below");
+          console.log(games[i]['playerNum']);
+          searchResults.push(games[i]);
+        }
       }
+      displayStats(searchResults);
     }
-    displayStats(searchResults);
   }
-
+  // helpful / interesting test code
   console.log("searchResults");
   console.log(searchResults);
 
@@ -97,6 +103,8 @@ function getData(){
   Parameters: None
   Returns: A JSON of all the data
   */
+
+  // Get value of the input boxes
   var fname = document.getElementById('fname').value;
   var playerNum = document.getElementById('playerNum').value;
   var numGoals = document.getElementById('numGoals').value;
@@ -107,8 +115,7 @@ function getData(){
   var attack = document.getElementById('attack').checked;
   var positions = [defense, midfield, attack];
 
-  // // Get the value of the check boxes.
-  // Note: don't use but getting them just in case I want do something with them later after we learn more code
+  // Get the value of the check boxes.
   var btb = document.getElementById('btb').checked;
   var icePick = document.getElementById('icePick').checked;
   var atw = document.getElementById('atw').checked;
@@ -118,7 +125,8 @@ function getData(){
   var gameDate = document.getElementById('gameDate').value;
 
   // I know I could put the statements above direclty in here but putting them separately
-  // made debugging easier
+  // made debugging a lot easier - that is why the data is in the format it is - it made
+  // looking at in the console much easier
   gameStats = {
     "fname": fname,
     "playerNum": playerNum,
@@ -140,7 +148,7 @@ function getData(){
 function writeData(gameStats, games){
   /*
   Purpose: Add the current JSON data to the list of JSONs
-  Parameters: the new JSON (type: JSON) and the list of JSONs (type: array)
+  Parameters: the new JSON (type: JSON) and the list of JSONs (type: array or list)
   Returns: The updaded game list of JSONs
   */
   if (games != null){
@@ -165,7 +173,7 @@ function readData(){
   /*
   Purpose: Get the list of JSONs from local storage and return it
   Parameters: None
-  Returns: A list of JSONs
+  Returns: A list of JSONs or null if local storage is empty
   */
   stringGames = localStorage.getItem("games");
   games = JSON.parse(stringGames);
@@ -180,7 +188,6 @@ function readData(){
 //***************************************************************************//
 //***************************************************************************//
 
-// Click event to attach to button
 function myClick () {
   /*
   Purpose: Listen for a button press in order to change content on the page
@@ -193,30 +200,38 @@ function myClick () {
   gameStats = getData(); // the current data stored in a JSON
   games = writeData(gameStats, games); // updates the Games list and returns the updated list
 
-  // some test code
+  // some test code that's interesting / helpful
   console.log(gameStats);
-  console.log(JSON.stringify(gameStats));
-  console.log(JSON.parse(JSON.stringify(gameStats)));
   console.log(games);
-  console.log("alsdkfja;lksdjfkl;asdjf;"); //test marker
 
 }
 
 function myMouseOver() {
+  /*
+  Purpose: Listen for a mouseover and make that input box turn turquoise
+  Parameters: None
+  Returns: None
+  */
   document.getElementById('playerSearchNum').style.backgroundColor = "rgb(0,155,155)"
 }
 
 function myMouseOut() {
+  /*
+  Purpose: Listen for a mouseout and make that input box return to its original color
+  Parameters: None
+  Returns: None
+  */
   document.getElementById('playerSearchNum').style.backgroundColor = ""
 }
 //***************************************************************************//
 //***************************************************************************//
 //***************************************************************************//
 
-// Main Global variables also here becasue not in a function)
+// Main (Global variables also here becasue main is not a function)
+
+// Getting the div's from the html
 myDiv = document.getElementById("myDiv");
 infoDiv = document.getElementById("infoDiv");
 resultsDiv = document.getElementById("resultsDiv");
-console.log(myDiv);
 
-games = readData(); // variable of old info that will be added to - null if no previous data
+games = readData(); // get list of old JSONs and store in a list here - null if no previous data

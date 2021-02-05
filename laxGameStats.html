@@ -5,12 +5,12 @@
     <meta charset="utf-8"></meta>
     <script defer src="laxGameStats.js"></script>
     <style>
-    #myDiv, button {
-      font-size: 150%;
-    }
-    input {
-      font-size: 125%;
-    }
+      #myDiv, button {
+        font-size: 150%;
+      }
+      input {
+        font-size: 125%;
+      }
     </style>
   </head>
   <body>
@@ -28,14 +28,14 @@
       <input id='numGoals' name='numGoals' type="number"><br>
 
       <!-- radio -->
-      <h2>Positional</h2> <!-- GO IN TO DR. J AND CHECK ALL NAMING CONVENTIONS AND CODE IS CORRECT!!!!!!!!!!!!!-->
+      <h2>Positional</h2>
 
       <label>Select your position</label><br>
-      <input type="radio" id="defense" name="gender" value="defense">
+      <input type="radio" id="defense" name="defense" value="defense">
       <label for="defense">Defense</label><br>
-      <input type="radio" id="midfield" name="gender" value="midfield">
+      <input type="radio" id="midfield" name="midfield" value="midfield">
       <label for="midfield">Midfield</label><br>
-      <input type="radio" id="attack" name="gender" value="attack">
+      <input type="radio" id="attack" name="midfield" value="attack">
       <label for="attack">Attack</label>
       <br></br>
 
@@ -49,16 +49,15 @@
       <label for="bigPlay2"> Ice Pick</label><br>
       <input type="checkbox" id="atw" name="atw" value="Around the World">
       <label for="bigPlay3"> Around the World</label>
-      <br></br> <!-- DO I NEED THE CLOSED BR TAG HERE. ASK DR. J IN CLASS!!!!!!!!!!! -->
+      <br></br>
 
+      <!-- Extra type of input - date -->
       <h2>Logistics</h2>
       <label for="gameDate">Enter the Game's Date</label><br>
       <input type="date" id="gameDate" name="gameDate"><br>
 
       <!-- button -->
       <br><button onclick='myClick()'>Click to sumbit your Stats!</button>
-
-
     </div>
 
     <div id="infoDiv">
@@ -70,7 +69,6 @@
     </div>
 
     <div id="resultsDiv" style="font-size: 155%">
-
     </div>
 
   </body>
